@@ -2,9 +2,9 @@
 
 namespace TarteebBank.Services
 {
-    internal class VOneLoggerService : LoggerService
+    internal class VOneLoggerService : ILoggerService
     {
-        internal override void Log(string message)
+        public void Log(string message)
     {
             Console.WriteLine(message);
         }

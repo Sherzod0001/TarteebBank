@@ -8,20 +8,20 @@ namespace TarteebBank
     {
         private static void Main(string[] args)
         {
-
-
+            ILoggerService logger = new VTwoLoggerService();
+            
             try
             {
-                VOneLoggerService logger = new VOneLoggerService();
+                
 
                 var menu = new Menu();
                 var password = new Password();
                 var balance = new Balance();
-
+                Console.ForegroundColor = ConsoleColor.Magenta;
                 string userInputThoughtPassword = password.GetUserValueByPassword("Create a unique password to use the program!!!\n" +
                                                                                   "Your password is: ");
 
-                PrintMassege("Password created.........");
+                logger.Log("Password created.........");
 
 
                 Console.Clear();
@@ -50,7 +50,7 @@ namespace TarteebBank
 
                             menu.ShowMenu();
 
-                            Console.Write("Enter your choice: ");
+                            logger.Log("Enter your choice: ");
                             string userInputValue = Console.ReadLine();
                             int userInput = Convert.ToInt32(userInputValue);
 
@@ -85,12 +85,12 @@ namespace TarteebBank
                         }
                     }
 
-                    Console.WriteLine("\nDo you want to continue? (yes / no)");
+                    logger.Log("\nDo you want to continue? (yes / no)");
                     yesOrNo = Console.ReadLine();
 
                 } while (yesOrNo.ToLower() == "yes" || yesOrNo.ToLower() == "y");
                 {
-                    Console.WriteLine("Thank you for using our program");
+                    logger.Log("Thank you for using our program");
                 }
 
                 static string PrintMassege(string massege)
@@ -100,8 +100,8 @@ namespace TarteebBank
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("Restart the program");
+                logger.Log(ex.Message);
+                logger.Log("Restart the program"); 
             }
         }
     }

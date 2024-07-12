@@ -5,11 +5,18 @@ namespace TarteebBank.Servises
 {
     public class Balance
     {
-        VOneLoggerService logger = new VOneLoggerService();
+        private ILoggerService logger;
+
+        public Balance()
+        {
+                this.logger = new VTwoLoggerService();
+        }
+
         internal void ShowBalance(decimal startBalance)
         {
             Console.Clear();
             logger.Log($"Your current balance is: ${startBalance}");
+
         }
 
         internal decimal WithdrawBalance(decimal startBalance)
@@ -32,7 +39,7 @@ namespace TarteebBank.Servises
 
             return startBalance;
         }
-
+        
         internal decimal TopUpBalance(decimal startBalance)
         {
             Console.Clear();
