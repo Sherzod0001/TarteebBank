@@ -4,7 +4,7 @@ using TarteebBank.Services;
 namespace TarteebBank.Servises
 {
     public class Balance
-    {   
+    {
         VOneLoggerService logger = new VOneLoggerService();
         internal void ShowBalance(decimal startBalance)
         {

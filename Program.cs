@@ -21,7 +21,8 @@ namespace TarteebBank
                 string userInputThoughtPassword = password.GetUserValueByPassword("Create a unique password to use the program!!!\n" +
                                                                                   "Your password is: ");
 
-                
+                PrintMassege("Password created.........");
+
 
                 Console.Clear();
 
